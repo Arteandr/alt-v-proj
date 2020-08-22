@@ -1,0 +1,16 @@
+node_modules/
+modules/
+data/
+altv-server.exe
+libnode.dll
+server.log
+update.json
+package-lock.json
+cache/
+crashdumps/
+server.cfg
+package.json
+altv-server
+libnode.so.72
+start.sh
+trackpoints.json

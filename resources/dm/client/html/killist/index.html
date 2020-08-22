@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <ul class="killList" v-if="show">
+            <li class="kill" v-for="item in lastFive">
+                <p class="killer">{{item.killer}}</p>
+                <img :src="imgUrl(item.hash)" draggable="false"/>
+                <p class="victim">{{item.victim}}</p>
+            </li>
+        </ul>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

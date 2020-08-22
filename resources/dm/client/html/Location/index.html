@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>locations menu</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="block__main">
+            <ul>
+                <li v-for="item in locations">
+                    <div class="block__row" >
+                        <h2>#{{getLocID(item.id)}}</h2>
+                        <img :src="item.photo" alt="photo" class="photo">
+                        <h3>{{item.name}}</h3>
+                        <h4 class="online">Online: {{online[item.id]}}</h4>
+                        <div class="weapons">
+                            <img :src="getWeaponURL(weapon)" alt="gun" v-for="weapon in item.guns" >
+                        </div>
+                        <img src="../weapons/armour_true.png" alt="armour" class="armour" v-if="item.armour">
+                        <img src="../weapons/armour_false.png" alt="armour" class="armour" v-else>
+                        <button  @click.prevent="onSubmit(item.id)" v-if="item.id != current">Connect</button>
+                        <button v-else @click.prevent="lobbyEmit()">Lobby</button>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="../vue.min.js"></script>
+<script src="./app.js"></script>
+</html>
